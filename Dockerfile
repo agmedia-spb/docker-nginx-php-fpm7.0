@@ -55,11 +55,13 @@ RUN apt install -y --no-install-recommends --no-install-suggests \
     git
 
 # Install node.js
-#RUN apt-get install -y --no-install-recommends --no-install-suggests \
-#    nodejs \
-#    npm \
-#    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
-#RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN apt-get install -y --no-install-recommends --no-install-suggests \
+    nodejs \
+    npm
+RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN npm install -g gulp-cli
+
+RUN apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
 # Install mail server
 COPY mailserver.sh /tmp/mailserver.sh
