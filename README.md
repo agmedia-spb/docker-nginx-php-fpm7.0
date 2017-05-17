@@ -1,18 +1,20 @@
-# docker Frontend nginx php-fpm 7.0 git Node.js npm gulp-cli
+# docker nginx php-fpm 7.0 git node.js npm gulp-cli
 
 ## Overview
 
 This is a Dockerfile/image to build a container ubuntu:16.04 for nginx and php-fpm, with php modules, Node.js npm gulp-cli, and also git.
 
-| Docker Tag 	| GitHub Release 	| Nginx Version 	| PHP Version 	| Git           | 
-|------------	|----------------	|---------------	|-------------	|-------------	| 
-| latest     	| Master Branch  	| 1.10.0        	| 7.0.15      	| 2.7.4         | 
 
-##### Frontend 
+[![Docker](https://img.shields.io/badge/Docker%20Tag-latest-green.svg)]()
+[![Github](https://img.shields.io/badge/GitHub%20Release%20-Master%20Branch-green.svg)]()
 
-| Node js     	| npm 	        | gulp-cli      |  
-|------------	|---------------|---------------| 
-| 4.2.6     	| 3.5.2  	    | 1.3.0         | 
+[![Nginx](https://img.shields.io/badge/nginx-1.10.0-blue.svg)]()
+[![php](https://img.shields.io/badge/php-7.0.15-blue.svg)]()
+[![git](https://img.shields.io/badge/git-2.7.4-blue.svg)]()
+[![nodejs](https://img.shields.io/badge/nodejs-4.2.6-blue.svg)]()
+[![npm](https://img.shields.io/badge/npm-3.5.2-blue.svg)]()
+[![gulp](https://img.shields.io/badge/gulp-1.3.0-blue.svg)]()
+
 
 List PHP modules:
 ```
@@ -29,13 +31,13 @@ Addition:
 `git mc postfix`
 
 ## Links 
-[Docker hub](https://hub.docker.com/r/lobsterk/docker-nginx-php-fpm7.0/)
+[Docker hub](https://hub.docker.com/r/agmedia/docker-nginx-php-fpm7.0/)
 
 ## Quick Start
 
 To pull from docker hub:
 
-`docker pull lobsterk/docker-nginx-php-fpm7.0:frontend`
+`docker pull agmedia/docker-nginx-php-fpm7.0`
 
 ### Running
 ##### Simple run project 
@@ -44,7 +46,7 @@ docker run -d -p 8080:80 \
       --rm \
       -v $(pwd)/www/:/var/www/html/ \
       --name test-docker \
-      lobsterk/docker-nginx-php-fpm7.0:frontend
+      agmedia/docker-nginx-php-fpm7.0
 ```
 
 ##### Run project with nginx and php-fpm configs
@@ -57,7 +59,7 @@ docker run -d -p 8080:80 \
       -v $(pwd)/nginx/default.conf:/etc/nginx/conf.d/default.conf \
       -v $(pwd)/nginx/nginx.conf/:/etc/nginx/nginx.conf/ \
       --name test-docker \
-      lobsterk/docker-nginx-php-fpm7.0:frontend
+      agmedia/docker-nginx-php-fpm7.0
 ```
 
 ##### Enter container bash
