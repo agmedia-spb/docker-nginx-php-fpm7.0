@@ -5,6 +5,10 @@ MAINTAINER Danil Kopylov <lobsterk@yandex.ru>
 RUN apt-get update && \
     apt-get install -y --no-install-recommends --no-install-suggests \
     nginx \
+    git \
+    curl \
+    zip \
+    unzip \
     php-fpm \
     ca-certificates \
     gettext \
@@ -24,6 +28,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends --no-install-suggests \
     php-mongodb \
     php-curl \
+    php-cli \
     php-intl \
     php-soap \
     php-xml \
@@ -51,9 +56,9 @@ RUN apt-get update && \
     echo "extension=amqp.so" > /etc/php/7.0/fpm/conf.d/10-amqp.ini && \
     rm -f /etc/php/7.0/mods-available/xdebug.ini
 
-# Install git core
-RUN apt install -y --no-install-recommends --no-install-suggests \
-    git
+RUN curl -sS https://getcomposer.org/installer | php \
+        && mv composer.phar /usr/local/bin/ \
+        && ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
 
 # Install node.js
 RUN apt-get install -y --no-install-recommends --no-install-suggests \
