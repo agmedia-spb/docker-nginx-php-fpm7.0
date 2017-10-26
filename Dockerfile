@@ -36,6 +36,7 @@ RUN apt-get update && \
     php-ldap \
     php-zip \
     php-iconv \
+    php-pgsql \
     php-pdo \
     php-json \
     php-simplexml \
